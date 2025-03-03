@@ -1,6 +1,8 @@
 import userRouter from '#Routes/user.routes.js';
+import topicsOrientationRouter from '#Routes/topicsOrientation.routes.js'; 
+import topicsDisciplinaryRouter from '#Routes/topicsDisciplinary.routes.js'; 
 import express from 'express';
-import cors from 'cors'; // Importa cors
+import cors from 'cors'; 
 
 const expressApp = express();
 
@@ -12,5 +14,8 @@ expressApp.use(express.json());
 
 // Rutas
 expressApp.use('/user', userRouter);
+expressApp.use('/topics-orientation', topicsOrientationRouter);
+expressApp.use('/topics-disciplinary', topicsDisciplinaryRouter);
 
 export default expressApp;
+
