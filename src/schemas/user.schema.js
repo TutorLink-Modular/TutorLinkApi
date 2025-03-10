@@ -8,12 +8,18 @@ const userSchema = new Schema(
         surname: { type: String, required: true, minLength: 4, maxLength: 50 },
         email: { type: String, required: true, unique: true },
         password: { type: String, required: true },
-        isEmailVerified: { type: Boolean, default: false }, // Indica si el correo ha sido verificado
-        emailVerificationCode: { type: String }, // Código único para la verificación del correo
-        resetPasswordToken: { type: String }, // Token hasheado para la recuperación de contraseña
-        resetPasswordExpire: { type: Date }, // Fecha de expiración del token de recuperación
+        isEmailVerified: { type: Boolean, default: false },
+        emailVerificationCode: { type: String },
+        resetPasswordToken: { type: String },
+        resetPasswordExpire: { type: Date },
+
+        // 🔥 Array para temas DISCIPLINARES
+        savedTopics: [{ type: String }],
+
+        // 🔥 NUEVO: Array para temas ORIENTACIONALES
+        savedOrientationalTopics: [{ type: String }],
     },
-    { timestamps: true } // timestamps añade campos createdAt y updatedAt automáticamente
+    { timestamps: true }
 );
 
 const UserModel = model('User', userSchema);
