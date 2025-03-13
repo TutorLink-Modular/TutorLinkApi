@@ -13,6 +13,10 @@ import {
 } from '#Controllers/resend-verification-email.controller.js';
 import userForgotPasswordController from '#Controllers/user-forgot-password.controller.js'; // Nuevo controlador
 import userResetPasswordController from '#Controllers/user-reset-password.controller.js';
+import userSaveTopicController from '#Controllers/user-save-topic.controller.js';
+import userRemoveTopicController from '#Controllers/user-remove-topic.controller.js';
+import saveOrientationalTopicController from '#Controllers/save-orientational-topic.controller.js';
+import removeOrientationalTopicController from '#Controllers/remove-orientational-topic.controller.js';
 
 import userJWTDTO from '#Dto/user-jwt.dto.js';
 import userLoginDTO from '#Dto/user-login.dto.js';
@@ -71,6 +75,24 @@ userRouter.post(
     '/reset-password',
     userResetPasswordDTO,
     userResetPasswordController
+);
+
+userRouter.post('/save-topic', userJWTDTO, userSaveTopicController);
+
+userRouter.post('/remove-topic', userJWTDTO, userRemoveTopicController);
+
+// 🔥 Nueva ruta para guardar temas orientacionales
+userRouter.post(
+    '/save-orientational-topic',
+    userJWTDTO,
+    saveOrientationalTopicController
+);
+
+// 🔥 Nueva ruta para eliminar temas orientacionales
+userRouter.post(
+    '/remove-orientational-topic',
+    userJWTDTO,
+    removeOrientationalTopicController
 );
 
 export default userRouter;
