@@ -13,12 +13,12 @@ import addFormats from 'ajv-formats';
 // Agregar la validación para el dominio específico de correo
 const emailDTOSchemaWithDomain = Type.String({
     format: 'email',
-    pattern: '^[a-zA-Z0-9._%+-]+@alumnos\\.udg\\.mx$', // Validar el dominio específico
+    pattern: '^[a-zA-Z0-9._%+-]+@(alumnos\.udg\.mx|academicos\.udg\.mx)$', // Validar el dominio específico
     errorMessage: {
-        type: 'El tipo del email no es válido, debe ser un string',
-        format: 'El formato del email no es válido, debe cumplir el RFC 5322',
+        type: 'El tipo del email no es válido',
+        format: 'El formato del email no es válido',
         pattern:
-            'El correo debe pertenecer al dominio institucional @alumnos.udg.mx',
+            'El correo debe pertenecer al dominio institucional @alumnos.udg.mx o @academicos.udg.mx',
     },
 });
 
