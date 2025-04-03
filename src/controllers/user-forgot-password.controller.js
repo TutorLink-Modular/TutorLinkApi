@@ -39,7 +39,7 @@ const userForgotPasswordController = async (req, res) => {
         });
 
         // Crear enlace para restablecer contraseña
-        const resetLink = `${process.env.FRONTEND_URL}/reset-password?token=${resetPasswordToken}`; // Asegúrate de configurar BASE_URL en tu archivo .env
+        const resetLink = `${process.env.FRONTEND_URL}/reset-password?token=${resetPasswordToken}`;
 
         const mailOptions = {
             from: process.env.EMAIL_USER, // Remitente

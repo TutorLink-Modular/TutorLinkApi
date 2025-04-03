@@ -4,13 +4,13 @@ import getOrientationalTopicController from '#Controllers/get-orientational-topi
 
 const topicsRouter = Router();
 
-// 🔥 Obtener tema DISCIPLINAR por ID
+//Obtener tema DISCIPLINAR por ID
 topicsRouter.get(
     '/topics-disciplinary/:topicId',
     getDisciplinaryTopicController
 );
 
-// 🔥 Obtener tema ORIENTACIONAL por ID
+//Obtener tema ORIENTACIONAL por ID
 topicsRouter.get(
     '/topics-orientation/:topicId',
     getOrientationalTopicController

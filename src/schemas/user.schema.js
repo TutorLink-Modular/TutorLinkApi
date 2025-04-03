@@ -13,10 +13,10 @@ const userSchema = new Schema(
         resetPasswordToken: { type: String },
         resetPasswordExpire: { type: Date },
 
-        // 🔥 Array para temas DISCIPLINARES
+        //Array para temas DISCIPLINARES
         savedTopics: [{ type: String }],
 
-        // 🔥 NUEVO: Array para temas ORIENTACIONALES
+        //Array para temas ORIENTACIONALES
         savedOrientationalTopics: [{ type: String }],
     },
     { timestamps: true }
