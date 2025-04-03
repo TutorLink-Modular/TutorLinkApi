@@ -13,7 +13,7 @@ const topicDisciplinaryPageController = async (req, res) => {
     }
 
     console.log("📌 Buscando tema con String ID...");
-    let topic = await topicsDisciplinaryModel.findOne({ _id: topicId }).select("title text");
+    let topic = await topicsDisciplinaryModel.findOne({ _id: topicId }).select("title text videos comments");
 
     if (!topic) {
       console.log("❌ Tema no encontrado en la base de datos");
