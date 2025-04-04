@@ -13,13 +13,13 @@ const topicDisciplinaryPageController = async (req, res) => {
         console.log('Buscando tema con String ID...');
         let topic = await topicsDisciplinaryModel
             .findOne({ _id: topicId })
-            .select('title text');
-
+            .select('title text videos comments');
+      
         if (!topic) {
             console.log('Tema no encontrado en la base de datos');
             return res.status(404).json({ error: 'Tema no encontrado' });
         }
-
+      
         console.log('Tema encontrado:', topic);
         res.status(200).json(topic);
     } catch (error) {

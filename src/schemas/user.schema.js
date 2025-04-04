@@ -12,11 +12,7 @@ const userSchema = new Schema(
         emailVerificationCode: { type: String },
         resetPasswordToken: { type: String },
         resetPasswordExpire: { type: Date },
-
-        //Array para temas DISCIPLINARES
         savedTopics: [{ type: String }],
-
-        //Array para temas ORIENTACIONALES
         savedOrientationalTopics: [{ type: String }],
     },
     { timestamps: true }

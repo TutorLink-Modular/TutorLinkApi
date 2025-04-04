@@ -5,6 +5,7 @@ import getMainTopicsDisciplinaryController from '#Controllers/getMainTopicsDisci
 import getTopicsByMainTopicController from '#Controllers/topicsDisciplinaryCards.controller.js';
 import getMainTopicByIdController from '#Controllers/getMainTopicById.controller.js';
 import searchMainTopicsDisciplinaryController from '#Controllers/searchMainTopicsDisciplinary.controller.js';
+import postCommentTopicDisciplinaryController from '#Controllers/postCommentTopicDisciplinary.controller.js';
 
 const router = express.Router();
 
@@ -21,4 +22,5 @@ router.get('/main-topic/:idMainTopic', getTopicsByMainTopicController);
 router.get('/topic/:topicId', topicDisciplinaryPageController);
 router.get('/sidebarTopicsDisciplinary', sidebarTopicsDisciplinaryController);
 
+router.post("/topic/:topicId/comment", postCommentTopicDisciplinaryController); //Para crear comentarios y guardarlos en la base de datos
 export default router;
