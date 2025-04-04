@@ -11,7 +11,7 @@ import {
     resendVerificationEmailController,
     resendLimit,
 } from '#Controllers/resend-verification-email.controller.js';
-import userForgotPasswordController from '#Controllers/user-forgot-password.controller.js'; // Nuevo controlador
+import userForgotPasswordController from '#Controllers/user-forgot-password.controller.js';
 import userResetPasswordController from '#Controllers/user-reset-password.controller.js';
 import userSaveTopicController from '#Controllers/user-save-topic.controller.js';
 import userRemoveTopicController from '#Controllers/user-remove-topic.controller.js';
@@ -81,14 +81,14 @@ userRouter.post('/save-topic', userJWTDTO, userSaveTopicController);
 
 userRouter.post('/remove-topic', userJWTDTO, userRemoveTopicController);
 
-// 🔥 Nueva ruta para guardar temas orientacionales
+//Nueva ruta para guardar temas orientacionales
 userRouter.post(
     '/save-orientational-topic',
     userJWTDTO,
     saveOrientationalTopicController
 );
 
-// 🔥 Nueva ruta para eliminar temas orientacionales
+//Nueva ruta para eliminar temas orientacionales
 userRouter.post(
     '/remove-orientational-topic',
     userJWTDTO,

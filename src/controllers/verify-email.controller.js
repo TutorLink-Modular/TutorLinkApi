@@ -1,7 +1,7 @@
 import UserModel from '#Schemas/user.schema.js';
 
 const verifyEmailController = async (req, res) => {
-    const { code } = req.query; // Obtenemos el código desde los parámetros de la URL
+    const { code } = req.query; //Obtenemos el código desde los parámetros de la URL
 
     try {
         // Verificar si el código fue enviado
@@ -16,15 +16,13 @@ const verifyEmailController = async (req, res) => {
             emailVerificationCode: code,
         }).exec();
 
-        // Verificar si el usuario existe y el código es válido
+        //Verificar si el usuario existe y el código es válido
         if (!user) {
-            return res
-                .status(404)
-                .send({
-                    errors: [
-                        'Código de verificación inválido o usuario no encontrado.',
-                    ],
-                });
+            return res.status(404).send({
+                errors: [
+                    'Código de verificación inválido o usuario no encontrado.',
+                ],
+            });
         }
 
         // Actualizar el estado de verificación del correo
@@ -37,11 +35,9 @@ const verifyEmailController = async (req, res) => {
             .send('Correo electrónico verificado con éxito. ¡Gracias!');
     } catch (error) {
         console.error('Error al verificar el correo:', error);
-        return res
-            .status(500)
-            .send({
-                errors: ['Hubo un error al verificar el correo electrónico.'],
-            });
+        return res.status(500).send({
+            errors: ['Hubo un error al verificar el correo electrónico.'],
+        });
     }
 };
 
