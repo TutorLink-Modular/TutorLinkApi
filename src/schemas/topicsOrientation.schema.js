@@ -3,12 +3,15 @@ const { Schema, model } = mongoose;
 
 const topicsOrientationSchema = new Schema(
     {
-        _id: { type: String, _id: false }, 
+        _id: {
+            type: String,
+            required: true,
+          },
         title: { type: String, required: true },
         description: { type: String},
         image: { type: String },
         text: { type: String, required: true },
-        idMainTopic: { type: String, required: true },
+        idMainTopic: { type: String},
         videos: [{ type: String }],
         comments: [
             {
