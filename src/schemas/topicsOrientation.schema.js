@@ -8,7 +8,7 @@ const topicsOrientationSchema = new Schema(
         description: { type: String },
         image: { type: String },
         text: { type: String, required: true },
-        idMainTopic: { type: String, required: true },
+        idMainTopic: { type: String},
         videos: [{ type: String }],
         comments: [
             {
