@@ -6,7 +6,7 @@ import postCommentTopicOrientationController from '#Controllers/postCommentTopic
 
 const router = express.Router();
 
-// 📌 Creamos dos rutas:
+//creamos dos rutas:
 router.get('/topicsOrientationCards', topicsOrientationCardsController); //Para mostrar todos los temas al usuario
 router.get('/topic/:topicId', topicOrientationPageController); //Para la segunda consulta, el cual ocupa el ID para devolver solo el tema seleccionado
 router.get('/sidebarTopicsOrientation', sidebarTopicsOrientationController); //Para mostrar todos los temas en el sidebar

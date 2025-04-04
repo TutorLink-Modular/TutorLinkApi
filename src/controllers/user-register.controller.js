@@ -56,7 +56,7 @@ const userRegisterController = async (req, res) => {
         });
 
         // Crear enlace de verificación
-        const verificationLink = `${process.env.BASE_URL}/user/verify-email?code=${emailVerificationCode}`; // Asegúrate de configurar FRONTEND_URL en tu archivo .env
+        const verificationLink = `${process.env.BASE_URL}/user/verify-email?code=${emailVerificationCode}`;
 
         const mailOptions = {
             from: process.env.EMAIL_USER, // Remitente

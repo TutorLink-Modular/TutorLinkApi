@@ -33,7 +33,7 @@ const userRemoveTopicController = async (req, res) => {
             .status(200)
             .send({ message: 'Tema eliminado correctamente' });
     } catch (error) {
-        console.error('❌ Error al eliminar el tema:', error);
+        console.error('Error al eliminar el tema:', error);
         return res.status(500).send({ errors: ['Error al eliminar el tema'] });
     }
 };
