@@ -12,7 +12,7 @@ const topicOrientationPageController = async (req, res) => {
         console.log('Buscando tema con String ID...');
         let topic = await topicsOrientationModel
             .findOne({ _id: topicId })
-            .select('title text videos comments');
+            .select('title description text videos comments');
 
         if (!topic) {
             return res.status(404).json({ error: 'Tema no encontrado' });
