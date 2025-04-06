@@ -8,6 +8,7 @@ import searchMainTopicsDisciplinaryController from '#Controllers/searchMainTopic
 import postCommentTopicDisciplinaryController from '#Controllers/postCommentTopicDisciplinary.controller.js';
 import deleteTopicDisciplinaryController from '#Controllers/deleteTopicDisciplinary.controller.js';
 import updateTopicDisciplinaryController from '#Controllers/updateTopicDisciplinary.controller.js';
+import createTopicDisciplinaryController from '#Controllers/createTopicDisciplinary.controller.js'; // ✅ Nuevo
 
 const router = express.Router();
 
@@ -23,25 +24,28 @@ router.get(
     getMainTopicByIdController
 );
 
-//Obtener todos los main topics
+// Obtener todos los main topics
 router.get('/main-topics-disciplinary', getMainTopicsDisciplinaryController);
 
-//Obtener todos los temas de un main topic
+// Obtener todos los temas de un main topic
 router.get('/main-topic/:idMainTopic', getTopicsByMainTopicController);
 
-//Obtener tema individual por ID
+// Obtener tema individual por ID
 router.get('/topic/:topicId', topicDisciplinaryPageController);
 
-//Temas del sidebar
+// Temas del sidebar
 router.get('/sidebarTopicsDisciplinary', sidebarTopicsDisciplinaryController);
 
-//Comentar en un tema
+// Comentar en un tema
 router.post('/topic/:topicId/comment', postCommentTopicDisciplinaryController);
 
-//Eliminar tema
-router.delete('/topic/:topicId', deleteTopicDisciplinaryController);
+// Crear nuevo tema
+router.post('/topic', createTopicDisciplinaryController);
 
-//Editar tema
+// Editar tema
 router.put('/topic/:topicId', updateTopicDisciplinaryController);
+
+// Eliminar tema
+router.delete('/topic/:topicId', deleteTopicDisciplinaryController);
 
 export default router;
