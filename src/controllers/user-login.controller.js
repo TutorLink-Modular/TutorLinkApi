@@ -35,7 +35,11 @@ const userLoginController = async (req, res) => {
         }
 
         // Generar el token JWT
-        const jwtConstructor = new SignJWT({ id: existingUserByEmail._id });
+        const jwtConstructor = new SignJWT({
+            id: existingUserByEmail._id,
+            email: existingUserByEmail.email,
+        });
+
         const encoder = new TextEncoder();
         const jwt = await jwtConstructor
             .setProtectedHeader({

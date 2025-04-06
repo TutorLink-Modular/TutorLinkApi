@@ -19,6 +19,7 @@ const userJWTDTO = async (req, res, next) => {
         );
 
         req.id = payload.id;
+        req.email = payload.email; // <-- IMPORTANTE: añade esto
 
         next();
     } catch (error) {
