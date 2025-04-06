@@ -8,36 +8,50 @@ import searchMainTopicsDisciplinaryController from '#Controllers/searchMainTopic
 import postCommentTopicDisciplinaryController from '#Controllers/postCommentTopicDisciplinary.controller.js';
 import deleteTopicDisciplinaryController from '#Controllers/deleteTopicDisciplinary.controller.js';
 import updateTopicDisciplinaryController from '#Controllers/updateTopicDisciplinary.controller.js';
-import createTopicDisciplinaryController from '#Controllers/createTopicDisciplinary.controller.js'; // ✅ Nuevo
+import createTopicDisciplinaryController from '#Controllers/createTopicDisciplinary.controller.js';
+import createMainTopicDisciplinaryController from '#Controllers/createMainTopicDisciplinary.controller.js';
+import deleteMainTopicDisciplinaryController from '#Controllers/deleteMainTopicDisciplinary.controller.js';
+import updateMainTopicDisciplinaryController from '#Controllers/updateMainTopicDisciplinary.controller.js';
 
 const router = express.Router();
 
-// Buscar temas por título
+/* 🔹 Main Topics Disciplinarios */
+// Obtener todos los main topics
+router.get('/main-topics-disciplinary', getMainTopicsDisciplinaryController);
+
+// Buscar main topics por título
 router.get(
     '/main-topics-disciplinary/search',
     searchMainTopicsDisciplinaryController
 );
 
-// Obtener info por ID del main topic
+// Obtener un main topic por ID
 router.get(
     '/main-topics-disciplinary/:idMainTopic',
     getMainTopicByIdController
 );
 
-// Obtener todos los main topics
-router.get('/main-topics-disciplinary', getMainTopicsDisciplinaryController);
+// Crear nuevo main topic
+router.post('/main-topics-disciplinary', createMainTopicDisciplinaryController);
 
-// Obtener todos los temas de un main topic
+// Actualizar un main topic disciplinar
+router.put(
+    '/main-topics-disciplinary/:id',
+    updateMainTopicDisciplinaryController
+);
+
+// Eliminar un main topic y sus subtemas
+router.delete(
+    '/main-topics-disciplinary/:idMainTopic',
+    deleteMainTopicDisciplinaryController
+);
+
+/* 🔹 Temas Disciplinarios */
+// Obtener todos los temas asociados a un main topic
 router.get('/main-topic/:idMainTopic', getTopicsByMainTopicController);
 
-// Obtener tema individual por ID
+// Obtener un tema por ID
 router.get('/topic/:topicId', topicDisciplinaryPageController);
-
-// Temas del sidebar
-router.get('/sidebarTopicsDisciplinary', sidebarTopicsDisciplinaryController);
-
-// Comentar en un tema
-router.post('/topic/:topicId/comment', postCommentTopicDisciplinaryController);
 
 // Crear nuevo tema
 router.post('/topic', createTopicDisciplinaryController);
@@ -47,5 +61,11 @@ router.put('/topic/:topicId', updateTopicDisciplinaryController);
 
 // Eliminar tema
 router.delete('/topic/:topicId', deleteTopicDisciplinaryController);
+
+// Comentarios en tema
+router.post('/topic/:topicId/comment', postCommentTopicDisciplinaryController);
+
+// Sidebar con temas
+router.get('/sidebarTopicsDisciplinary', sidebarTopicsDisciplinaryController);
 
 export default router;
