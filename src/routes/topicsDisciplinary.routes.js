@@ -12,6 +12,8 @@ import createTopicDisciplinaryController from '#Controllers/createTopicDisciplin
 import createMainTopicDisciplinaryController from '#Controllers/createMainTopicDisciplinary.controller.js';
 import deleteMainTopicDisciplinaryController from '#Controllers/deleteMainTopicDisciplinary.controller.js';
 import updateMainTopicDisciplinaryController from '#Controllers/updateMainTopicDisciplinary.controller.js';
+import updateCommentTopicDisciplinaryController from '#Controllers/updateCommentTopicDisciplinary.controller.js';
+import deleteCommentTopicDisciplinaryController from '#Controllers/deleteCommentTopicDisciplinary.controller.js';
 
 const router = express.Router();
 
@@ -67,5 +69,11 @@ router.post('/topic/:topicId/comment', postCommentTopicDisciplinaryController);
 
 // Sidebar con temas
 router.get('/sidebarTopicsDisciplinary', sidebarTopicsDisciplinaryController);
+
+// Actualizar comentario
+router.put('/topic/:topicId/comment/:commentId', updateCommentTopicDisciplinaryController);
+
+// Eliminar comentario
+router.delete('/topic/:topicId/comment/:commentId', deleteCommentTopicDisciplinaryController);
 
 export default router;
