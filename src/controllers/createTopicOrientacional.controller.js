@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 const createTopicOrientacionalController = async (req, res) => {
     try {
-        const { title, description, text, videos } = req.body;
+        const { title, description, text, videos, image } = req.body;
 
         if (!title || !text) {
             return res
@@ -18,7 +18,7 @@ const createTopicOrientacionalController = async (req, res) => {
             text,
             idMainTopic: '', // Campo vacío en orientación
             videos: Array.isArray(videos) ? videos : [],
-            image: '', // Valor por defecto
+            image: image || '', // ✅ ahora se guarda si viene desde el frontend
         });
 
         await newTopic.save();

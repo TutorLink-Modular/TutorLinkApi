@@ -3,7 +3,8 @@ import { v4 as uuidv4 } from 'uuid';
 
 const createTopicDisciplinaryController = async (req, res) => {
     try {
-        const { title, description, text, idMainTopic, videos } = req.body;
+        const { title, description, text, idMainTopic, videos, image } =
+            req.body;
 
         if (!title || !text || !idMainTopic) {
             return res
@@ -18,7 +19,7 @@ const createTopicDisciplinaryController = async (req, res) => {
             text,
             idMainTopic,
             videos: Array.isArray(videos) ? videos : [],
-            image: '', // Valor por defecto vacío
+            image: image || '', // ✅ ahora guarda correctamente el valor
         });
 
         await newTopic.save();
